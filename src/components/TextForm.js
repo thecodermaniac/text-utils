@@ -72,7 +72,7 @@ export default function LextForm(params) {
             <label htmlFor="exampleFormControlTextarea1">Type your Wpm</label>
             <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={wpm} onChange={clickchange}></textarea>
             <p>{wordcounter(text)} Words and {charactercont(text)} Characters</p>
-            <p>The text could be read in {(60 / wpm) * wordcounter(text)} Minutes</p>
+            <p>The text could be read in {(1 / wpm) * wordcounter(text)} Minutes</p>
             <h1>Preview Text</h1>
             <p>{text}</p>
         </>
