@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default function Navbar(params) {
     return (
         <>
-            <nav className="navbar navbar-dark bg-dark">
+            <nav className={params.modes==='light'?'navbar navbar-expand-lg bg-light':'navbar navbar-dark bg-dark'} >
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">{params.title}</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +19,10 @@ export default function Navbar(params) {
                                 <a className="nav-link" href="#">About Us</a>
                             </li>
                         </ul>
+                        <div className="form-check form-switch">
+                            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={params.modefunc}/>
+                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode </label>
+                        </div>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-outline-success" type="submit">Search</button>
@@ -34,6 +38,6 @@ Navbar.propTypes = {
     title: PropTypes.string.isRequired
 }
 
-Navbar.defaultProps={
+Navbar.defaultProps = {
     title: 'Set Title'
 }
