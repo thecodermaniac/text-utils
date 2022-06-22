@@ -15,18 +15,11 @@ export default function Navbar(params) {
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">About Us</a>
-                            </li>
                         </ul>
                         <div className="form-check form-switch">
                             <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={params.modefunc}/>
                             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode </label>
                         </div>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
                     </div>
                 </div>
             </nav>
