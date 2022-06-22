@@ -1,5 +1,4 @@
 import './App.css';
-import AboutUs from './components/AboutUs';
 import Sexybar from './components/Navbar'
 import Textform from './components/TextForm'
 import React, { useState } from 'react'
