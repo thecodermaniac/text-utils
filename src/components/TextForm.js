@@ -26,7 +26,7 @@ export default function LextForm(params) {
 
     }
     function wordcounter(textstr) {
-        return textstr.split(' ').filter(function (n) { return n != '' }).length
+        return textstr.split(/\s+/).filter(function (n) { return n != '' }).length
 
     }
     function charactercont(textstr) {
@@ -41,7 +41,7 @@ export default function LextForm(params) {
         var temp = spaceremover(text)
         setText(temp)
         console.log(temp)
-        params.setAlerts('success', 'Converted to upper case')
+        params.setAlerts('success', 'Extra Space Removed')
     }
     function spaceremover(textstr) {
         textstr = textstr.split(' ').filter(function (n) { return n != '' })
@@ -63,10 +63,10 @@ export default function LextForm(params) {
             <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={text} onChange={handlechange}></textarea>
             <br />
             <div className="d-grid gap-6 d-md-block">
-                <button type="button" className={params.modes === 'light' ? 'btn btn-dark' : 'btn btn-light'} onClick={handleClick} style={btnsty}>Capitalize</button>
-                <button type="button" className={params.modes === 'light' ? 'btn btn-dark' : 'btn btn-light'} onClick={loweriseclick} style={btnsty}>Lowercase</button>
-                <button type="button" className={params.modes === 'light' ? 'btn btn-dark' : 'btn btn-light'} onClick={spaceclick} style={btnsty}>Space Remove</button>
-                <button type="button" className={params.modes === 'light' ? 'btn btn-dark' : 'btn btn-light'} onClick={clipclick} style={btnsty}>Copy To clipboard</button>
+                <button disabled={text.length === 0} type="button" className={params.modes === 'light' ? 'btn btn-dark' : 'btn btn-light'} onClick={handleClick} style={btnsty}>Capitalize</button>
+                <button disabled={text.length === 0} type="button" className={params.modes === 'light' ? 'btn btn-dark' : 'btn btn-light'} onClick={loweriseclick} style={btnsty}>Lowercase</button>
+                <button disabled={text.length === 0} type="button" className={params.modes === 'light' ? 'btn btn-dark' : 'btn btn-light'} onClick={spaceclick} style={btnsty}>Space Remove</button>
+                <button disabled={text.length === 0} type="button" className={params.modes === 'light' ? 'btn btn-dark' : 'btn btn-light'} onClick={clipclick} style={btnsty}>Copy To clipboard</button>
             </div>
             <br />
             <label htmlFor="exampleFormControlTextarea1">Type your Wpm</label>

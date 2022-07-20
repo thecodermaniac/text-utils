@@ -3,6 +3,14 @@ import Sexybar from './components/Navbar'
 import Textform from './components/TextForm'
 import React, { useState } from 'react'
 import Alert from './components/Alert';
+import AboutUs from './components/AboutUs'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
 
 // import MultipleOption from "./components/MultipleOption";
 
@@ -33,18 +41,28 @@ function App() {
   }
   return (
     <>
-      <Sexybar title='Text Utils' modes={mode} modefunc={tooglehandle} />
-      <Alert alerts={alert} />
-      <div className='container'>
-        <Textform title='Capitalize Text' setAlerts={showAlert} modes={mode} />
-      </div>
+      <Router>
+        <Sexybar title='Text Utils' modes={mode} modefunc={tooglehandle} />
+        <Alert alerts={alert} />
+
+        <Switch>
+          <Route path="/about">
+            <div className='container'>
+              <AboutUs />
+            </div>
+          </Route>
+          <Route path="/">
+            <div className='container'>
+              <Textform title='Capitalize Text' setAlerts={showAlert} modes={mode} />
+            </div>
+          </Route>
+        </Switch>
+      </Router>
       <br />
       {/* <div className='container'>
         <MultipleOption title='Select Wpm'/>
       </div> */}
-      {/* <div className='container'>
-        <AboutUs />
-      </div> */}
+
     </>
   );
 }
